@@ -1,14 +1,11 @@
 package com.github.kbednarz.issuetrackingsystem.domain;
 
+import com.github.kbednarz.issuetrackingsystem.domain.auth.User;
 import com.github.kbednarz.issuetrackingsystem.domain.enums.Priority;
 import com.github.kbednarz.issuetrackingsystem.domain.enums.Status;
 import com.github.kbednarz.issuetrackingsystem.domain.enums.Type;
-import org.springframework.security.core.userdetails.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -38,8 +35,12 @@ public class Task {
     private Date lastUpdate;
 
     @NotNull
+    @OneToOne
+    @JoinColumn
     private User reporter;
 
+    @OneToOne
+    @JoinColumn
     private User assignee;
 
     private String description;
