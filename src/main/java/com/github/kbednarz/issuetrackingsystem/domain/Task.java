@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -17,24 +19,32 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     private String title;
 
+    @NotNull
     private Status status;
 
+    @NotNull
     private Type type;
 
+    @Future
     private Date dueDate;
 
+    @NotNull
     private Date timestamp;
 
+    @NotNull
     private Date lastUpdate;
 
+    @NotNull
     private User reporter;
 
     private User assignee;
 
     private String description;
 
+    @NotNull
     private Priority priority;
 
     public Long getId() {
