@@ -48,6 +48,10 @@ public class Task {
     @NotNull
     private Priority priority;
 
+    @ManyToOne
+    @JoinColumn
+    private Project project;
+
     public Long getId() {
         return id;
     }
@@ -130,5 +134,13 @@ public class Task {
 
     public void setPriority(Priority priority) {
         this.priority = priority;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 }
