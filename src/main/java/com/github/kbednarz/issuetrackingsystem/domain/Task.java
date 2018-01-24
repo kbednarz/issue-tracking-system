@@ -8,7 +8,9 @@ import com.github.kbednarz.issuetrackingsystem.domain.enums.Type;
 import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Task {
@@ -47,6 +49,16 @@ public class Task {
 
     @NotNull
     private Priority priority;
+
+    @ManyToOne
+    @JoinColumn
+    private Project project;
+
+    @OneToMany(mappedBy = "task")
+    private List<Comment> comments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "task")
+    private List<Attachment> attachments = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -130,5 +142,29 @@ public class Task {
 
     public void setPriority(Priority priority) {
         this.priority = priority;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(List<Attachment> attachments) {
+        this.attachments = attachments;
     }
 }
