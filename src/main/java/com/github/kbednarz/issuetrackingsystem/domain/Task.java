@@ -57,6 +57,9 @@ public class Task {
     @OneToMany(mappedBy = "task")
     private List<Comment> comments = new ArrayList<>();
 
+    @OneToMany(mappedBy = "task")
+    private List<Attachment> attachments = new ArrayList<>();
+
     public Long getId() {
         return id;
     }
@@ -155,5 +158,13 @@ public class Task {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public List<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(List<Attachment> attachments) {
+        this.attachments = attachments;
     }
 }
