@@ -5,6 +5,7 @@ import com.github.kbednarz.issuetrackingsystem.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -15,6 +16,8 @@ public class ProjectService implements CrudServiceInterface<Project> {
 
     @Override
     public Project save(Project instance) {
+        instance.setTimestamp(new Date());
+
         return projectRepository.save(instance);
     }
 
