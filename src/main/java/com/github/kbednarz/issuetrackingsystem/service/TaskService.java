@@ -1,6 +1,10 @@
 package com.github.kbednarz.issuetrackingsystem.service;
 
+import com.github.kbednarz.issuetrackingsystem.domain.Project;
 import com.github.kbednarz.issuetrackingsystem.domain.Task;
+import com.github.kbednarz.issuetrackingsystem.domain.enums.Priority;
+import com.github.kbednarz.issuetrackingsystem.domain.enums.Status;
+import com.github.kbednarz.issuetrackingsystem.dto.TaskDTO;
 import com.github.kbednarz.issuetrackingsystem.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,11 +12,30 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TaskService implements CrudServiceInterface<Task> {
+public class TaskService implements CrudServiceInterface<Task, TaskDTO> {
     @Autowired
     TaskRepository taskRepository;
 
-    public Task save(Task task) {
+    @Autowired
+    ProjectService projectService;
+
+    public Task save(TaskDTO taskDTO) {
+        Task task = new Task();
+        task.setTitle(taskDTO.getTitle());
+        task.setType(taskDTO.getType());
+        task.setStatus(Status.TODO);
+
+        if (taskDTO.getPriority() != null) {
+            task.setPriority(taskDTO.getPriority());
+        } else {
+            task.setPriority(Priority.NORMAL);
+        }
+
+        task.setDescription(taskDTO.getDescription());
+
+        Project project = projectService.get(taskDTO.getProjectId());
+        task.setProject(project);
+
         return taskRepository.save(task);
     }
 

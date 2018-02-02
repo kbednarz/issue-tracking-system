@@ -1,21 +1,29 @@
 package com.github.kbednarz.issuetrackingsystem.service;
 
 import com.github.kbednarz.issuetrackingsystem.domain.Project;
+import com.github.kbednarz.issuetrackingsystem.dto.ProjectDTO;
 import com.github.kbednarz.issuetrackingsystem.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
-public class ProjectService implements CrudServiceInterface<Project> {
+public class ProjectService implements CrudServiceInterface<Project, ProjectDTO> {
 
     @Autowired
     ProjectRepository projectRepository;
 
     @Override
-    public Project save(Project instance) {
-        return projectRepository.save(instance);
+    public Project save(ProjectDTO projectDTO) {
+        Project project = new Project();
+        project.setTitle(projectDTO.getTitle());
+        project.setDescription(projectDTO.getDescription());
+
+        project.setTimestamp(new Date());
+
+        return projectRepository.save(project);
     }
 
     @Override
