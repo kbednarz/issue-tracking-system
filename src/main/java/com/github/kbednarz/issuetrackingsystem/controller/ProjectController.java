@@ -1,10 +1,12 @@
 package com.github.kbednarz.issuetrackingsystem.controller;
 
 import com.github.kbednarz.issuetrackingsystem.domain.Project;
+import com.github.kbednarz.issuetrackingsystem.dto.ProjectDTO;
 import com.github.kbednarz.issuetrackingsystem.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -20,8 +22,8 @@ public class ProjectController {
     }
 
     @PostMapping
-    public Project saveProject(@RequestBody Project project) {
-        return projectService.save(project);
+    public Project saveProject(@RequestBody @Valid ProjectDTO projectDTO) {
+        return projectService.save(projectDTO);
     }
 
     @GetMapping("list")
