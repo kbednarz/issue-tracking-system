@@ -36,7 +36,6 @@ public class Task {
     @NotNull
     private Date lastUpdate;
 
-    @NotNull
     @OneToOne
     @JoinColumn
     private User reporter;

@@ -9,6 +9,7 @@ import com.github.kbednarz.issuetrackingsystem.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,6 +25,8 @@ public class TaskService implements CrudServiceInterface<Task, TaskDTO> {
         task.setTitle(taskDTO.getTitle());
         task.setType(taskDTO.getType());
         task.setStatus(Status.TODO);
+        task.setTimestamp(new Date());
+        task.setLastUpdate(new Date());
 
         if (taskDTO.getPriority() != null) {
             task.setPriority(taskDTO.getPriority());

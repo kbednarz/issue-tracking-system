@@ -50,7 +50,7 @@ public class ProjectControllerIntTest {
         // when
         this.mockMvc.perform(get("/api/project?id=" + project.getId()))
                 .andExpect(status().is(200))
-                .andExpect(jsonPath("$.id", is(project.getId())));
+                .andExpect(jsonPath("$.id", is(project.getId().intValue())));
 
     }
 

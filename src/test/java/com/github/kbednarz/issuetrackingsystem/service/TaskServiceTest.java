@@ -1,34 +1,41 @@
 package com.github.kbednarz.issuetrackingsystem.service;
 
 import com.github.kbednarz.issuetrackingsystem.domain.Task;
+import com.github.kbednarz.issuetrackingsystem.dto.TaskDTO;
 import com.github.kbednarz.issuetrackingsystem.repository.TaskRepository;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class TaskServiceTest {
-    TaskService taskService;
-    TaskRepository taskRepository;
+    private TaskService taskService;
+    private TaskRepository taskRepository;
+    private ProjectService projectService;
 
     @Before
     public void setUp() throws Exception {
         taskService = new TaskService();
+        
         taskRepository = mock(TaskRepository.class);
         taskService.taskRepository = taskRepository;
+
+        projectService = mock(ProjectService.class);
+        taskService.projectService = projectService;
     }
 
     @Test
     public void save() {
         // given
-        Task task = mock(Task.class);
+        TaskDTO taskDTO = mock(TaskDTO.class);
 
         //when
-        taskService.save(task);
+        taskService.save(taskDTO);
 
         //then
-        verify(taskRepository).save(task);
+        verify(taskRepository).save(any(Task.class));
     }
 
     @Test

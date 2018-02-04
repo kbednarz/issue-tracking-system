@@ -5,6 +5,7 @@ import com.github.kbednarz.issuetrackingsystem.domain.auth.User;
 import com.github.kbednarz.issuetrackingsystem.domain.enums.Priority;
 import com.github.kbednarz.issuetrackingsystem.domain.enums.Status;
 import com.github.kbednarz.issuetrackingsystem.domain.enums.Type;
+import com.github.kbednarz.issuetrackingsystem.dto.TaskDTO;
 import com.github.kbednarz.issuetrackingsystem.repository.TaskRepository;
 import com.github.kbednarz.issuetrackingsystem.repository.auth.UserRepository;
 import org.junit.Test;
@@ -35,19 +36,11 @@ public class TaskServiceIntTest {
     public void save() {
         // given
         assertEquals(0, taskRepository.count());
-        User user = createUser();
 
-        Task task = new Task();
-        task.setTitle("Task title");
-        task.setStatus(Status.TODO);
-        task.setType(Type.TASK);
-        task.setTimestamp(new Date());
-        task.setLastUpdate(new Date());
-        task.setReporter(user);
-        task.setPriority(Priority.NORMAL);
+        TaskDTO taskDTO = new TaskDTO("Task title", Type.TASK, null,Priority.NORMAL,12L);
 
         // when
-        Task result = taskService.save(task);
+        Task result = taskService.save(taskDTO);
 
         // then
         assertEquals(1, taskRepository.count());
