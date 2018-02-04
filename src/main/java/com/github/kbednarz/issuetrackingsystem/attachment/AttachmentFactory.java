@@ -1,7 +1,7 @@
 package com.github.kbednarz.issuetrackingsystem.attachment;
 
 public class AttachmentFactory {
-    public Attachment getContent(String path, Integer mode) throws Exception {
+    public Attachment getContent(Integer mode) throws Exception {
         switch (mode) {
             case 0:
                 return new LocalFileAttachment();
