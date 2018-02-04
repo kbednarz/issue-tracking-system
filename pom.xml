@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>issue-tracking-system</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Simple project management API</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
