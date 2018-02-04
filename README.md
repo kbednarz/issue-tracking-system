@@ -1,5 +1,5 @@
 # Issue Tracking System - Java coursework
-Issue Tracking System is application prototype for managing small projects. It provides CRUD API for basic functionalities.
+Issue Tracking System is application prototype for managing small projects. It provides CRUD API for basic management functionalities.
 ___
 Authors:
 * Kamil Bednarz
