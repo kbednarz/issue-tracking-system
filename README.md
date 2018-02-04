@@ -13,5 +13,6 @@ Technology stack:
 * Spring Security
 * Spring JPA
 * Spring Test
+* Spring Mail
 * H2 In Memory Database
 * PostgreSQL Database
