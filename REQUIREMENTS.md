@@ -13,7 +13,7 @@
     * `mvn package`
 * czy zrealizowano co najmniej 5 przykładowych testów jednostkowych :heavy_check_mark: 
     * `mvn test`
-    * ilość testów jednostkowych i integracyjnych: **9**
+    * ilość testów jednostkowych i integracyjnych: **10**
 * czy testy jednostkowe mają status PASSED w trakcie procesu budowania projektu przez Mavena :heavy_check_mark: 
 * czy projekt został umieszczony pod kontrolą wersji za pomocą Gita :heavy_check_mark:
 * czy struktura gałęzi repozytorium jest prawidłowo zarządzana :heavy_check_mark: 
