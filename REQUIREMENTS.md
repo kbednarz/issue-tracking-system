@@ -1,8 +1,9 @@
 # Requirements
 
 * czy wykorzystano co najmniej trzy wzorce projektowe :x:
-    * Creational: Factory pattern (AttachmentFactory)
+    * Creational: Factory pattern (e.g AttachmentFactory class)
     * [Transfer Object Pattern](https://www.tutorialspoint.com/design_pattern/transfer_object_pattern.htm)
+    * Structural: Composite pattern (e.g. TaskBulkChangeComposite class)
 * czy prawidłowo zdekomponowano odpowiedzialności :heavy_check_mark: 
 * czy wykorzystano jakiś wzorzec architektoniczny :heavy_check_mark: (Model-View-Controller)
 * czy projekt jest Mavenowy i czy poprawnie buduje się z linii komend :heavy_check_mark: 
