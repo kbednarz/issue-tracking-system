@@ -13,7 +13,7 @@ public abstract class MailService {
     }
 
     public void sendMail(Integer depth, String subject, String content) {
-        if (configDepth < depth)
+        if (depth < configDepth)
             send(subject, content);
 
         if (nextMailService != null)
