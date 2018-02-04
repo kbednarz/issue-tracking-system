@@ -3,6 +3,7 @@ Authors:
 Kamil Bednarz
 Paweł Czarny
 Michał Bogucki
+
 Issue Tracking System is application prototype for managing small projects. It provides CRUD API for basic functionalities.
 ___
 [Requirements](REQUIREMENTS.md)
