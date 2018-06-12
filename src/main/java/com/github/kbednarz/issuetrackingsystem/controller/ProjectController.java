@@ -23,6 +23,7 @@ public class ProjectController {
 
     @PostMapping
     public Project saveProject(@RequestBody @Valid ProjectDTO projectDTO) {
+        System.out.println("TEST");
         return projectService.save(projectDTO);
     }
 
