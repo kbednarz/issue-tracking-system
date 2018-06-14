@@ -1,7 +1,10 @@
 package com.github.kbednarz.issuetrackingsystem.controller.auth;
 
 import com.github.kbednarz.issuetrackingsystem.auth.UserValidator;
+import com.github.kbednarz.issuetrackingsystem.controller.AddController.IUser;
+import com.github.kbednarz.issuetrackingsystem.controller.ProjectController;
 import com.github.kbednarz.issuetrackingsystem.domain.auth.User;
+import com.github.kbednarz.issuetrackingsystem.service.ProjectService;
 import com.github.kbednarz.issuetrackingsystem.service.auth.SecurityService;
 import com.github.kbednarz.issuetrackingsystem.service.auth.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class UserController {
+public class UserController implements IUser {
     @Autowired
     private UserService userService;
+    private ProjectService projectservice;
 
     @Autowired
     private SecurityService securityService;
@@ -29,6 +33,17 @@ public class UserController {
 
         return "registration";
     }
+
+    public void UserController(ProjectService o)
+    {
+        this.projectservice=o;
+    }
+
+    public void update()
+    {
+        this.projectservice.addTask();
+    }
+
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
