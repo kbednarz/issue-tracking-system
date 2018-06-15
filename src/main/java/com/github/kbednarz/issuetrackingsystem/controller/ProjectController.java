@@ -1,5 +1,7 @@
 package com.github.kbednarz.issuetrackingsystem.controller;
 
+import com.github.kbednarz.issuetrackingsystem.controller.AddController.IProjectable;
+import com.github.kbednarz.issuetrackingsystem.controller.AddController.IUser;
 import com.github.kbednarz.issuetrackingsystem.domain.Project;
 import com.github.kbednarz.issuetrackingsystem.dto.ProjectDTO;
 import com.github.kbednarz.issuetrackingsystem.service.ProjectService;
@@ -12,9 +14,9 @@ import java.util.List;
 @RestController
 @RequestMapping("api/project")
 public class ProjectController {
-
     @Autowired
     ProjectService projectService;
+
 
     @GetMapping
     public Project getProject(@RequestParam Long id) {
