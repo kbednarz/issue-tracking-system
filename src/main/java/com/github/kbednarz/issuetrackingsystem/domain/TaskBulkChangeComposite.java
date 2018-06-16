@@ -16,7 +16,7 @@ public class TaskBulkChangeComposite extends Task {
 
     public void remove(Task task) {
         for (Task obj : tasks) {
-            if (obj.getId() == task.getId())
+            if (obj.getId().equals(task.getId()))
                 tasks.remove(obj);
         }
     }
