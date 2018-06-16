@@ -5,6 +5,7 @@
     * [Transfer Object Pattern](https://www.tutorialspoint.com/design_pattern/transfer_object_pattern.htm)
     * Structural: Composite pattern (e.g. TaskBulkChangeComposite class)
     * Behavioral: Chain of Responsibility pattern (e.g. MailService class)
+    * Behavioral: Observer pattern (e.g. ProjectService, MailService class)
 * czy prawidłowo zdekomponowano odpowiedzialności :heavy_check_mark: 
 * czy wykorzystano jakiś wzorzec architektoniczny :heavy_check_mark: (Model-View-Controller)
 * czy projekt jest Mavenowy i czy poprawnie buduje się z linii komend :heavy_check_mark: 
