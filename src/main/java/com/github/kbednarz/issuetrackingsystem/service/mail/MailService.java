@@ -1,8 +1,9 @@
 package com.github.kbednarz.issuetrackingsystem.service.mail;
 
+import com.github.kbednarz.issuetrackingsystem.observer.Observer;
 import org.springframework.mail.javamail.JavaMailSender;
 
-public abstract class MailService {
+public abstract class MailService implements Observer {
     protected MailService nextMailService;
     protected Integer configDepth;
     protected JavaMailSender javaMailSender;

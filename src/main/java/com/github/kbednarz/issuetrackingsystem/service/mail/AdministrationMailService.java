@@ -16,4 +16,9 @@ public class AdministrationMailService extends MailService {
         message.setText(content);
         javaMailSender.send(message);
     }
+
+    @Override
+    public void update() {
+        send("Project added", "Project has been added");
+    }
 }
