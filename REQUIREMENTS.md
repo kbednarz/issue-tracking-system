@@ -1,6 +1,7 @@
 # Requirements
 
 * czy wykorzystano co najmniej trzy wzorce projektowe :heavy_check_mark: 
+    * Model-View-Controller pattern
     * Creational: Factory pattern (e.g AttachmentFactory class)
     * [Transfer Object Pattern](https://www.tutorialspoint.com/design_pattern/transfer_object_pattern.htm)
     * Structural: Composite pattern (e.g. TaskBulkChangeComposite class)
